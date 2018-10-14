@@ -12,7 +12,7 @@ require 'Mail/sendMail.php';
 $getWeather = new Weather();
 $sendMail = new sendMail();
 $content = $getWeather->getWeather("云霄");
-$toMail = "xxx@139.com";
+$toMail = "luosilent@139.com";
 $toName = "luo";
 $subject = "每日天气测试";
 $mailer = $sendMail->mail($content, $subject, $toMail, $toName);
