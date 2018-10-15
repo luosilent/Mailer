@@ -11,7 +11,7 @@ require ROOT_PATH.'/vendor/autoload.php';
 class sendMail
 {
     private static $username = 'luosilent@qq.com';
-    private static $key = 'xxxx';
+    private static $key = '';
     private static $my = 'Lcg';
     private static $toMail1 = '166820145@qq.com';
     private static $toName1 = 'lcg';
@@ -19,7 +19,7 @@ class sendMail
 
     public function mail($content,$subject,$toMail2,$toName2)
     {
-        $transport = (new Swift_SmtpTransport('smtp.qq.com', 465,'ssl'))
+        $transport = (new Swift_SmtpTransport('smtp.qq.com', 25))
             ->setUsername(self::$username)
             ->setPassword(self::$key);
 

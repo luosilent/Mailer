@@ -2,20 +2,20 @@
 /**
  * Created by PhpStorm.
  * User: luosilent
- * Date: 2018/10/10
- * Time: 11:06
+ * Date: 2018/10/15
+ * Time: 15:55
  */
-
-require 'Weather/weather.php';
+require 'NBAGame/NBA.php';
 require 'Mail/sendMail.php';
 
-$getWeather = new Weather();
+$getGame = new NBA();
 $sendMail = new sendMail();
-$content = $getWeather->getWeather("云霄");
+$content = $getGame->getGame();
 $toMail = "luosilent@139.com";
 $toName = "luo";
-$subject = "每日天气测试";
+$subject = "NBA赛程提醒";
 $mailer = $sendMail->mail($content, $subject, $toMail, $toName);
+
 if ($mailer) {
     echo "send mail successful!";
 } else {

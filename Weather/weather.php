@@ -40,31 +40,29 @@ class Weather
 
             $re[] = <<<EOF
         $parent_city $city
-            白天天气:$cond_txt_d
-            晚间天气:$cond_txt_n
-            最高温度:$tmp_max 
-            最低温度:$tmp_min 
-            降水概率:$pop 会下雨
-            降水量:$pcpn
-            风向:$wind_dir
-            风力:$wind_sc 
-            日出时间:$sr
-            日落时间:$ss
-            更新时间:$loc
+白天天气:$cond_txt_d
+晚间天气:$cond_txt_n
+最高温度:$tmp_max 
+最低温度:$tmp_min 
+降水概率:$pop 会下雨
+降水量:$pcpn
+风向:$wind_dir
+风力:$wind_sc 
+日出时间:$sr
+日落时间:$ss
+更新时间:$loc
 EOF;
 
         }
 
         $content = <<<EOF
         
-        今天
-        $re[0]
-        
-        明天
-        $re[1]
-        
-        后天       
-        $re[2];
+ 今天
+ $re[0] 
+ 明天
+ $re[1]     
+后天       
+$re[2]
 EOF;
 
         return $content;
