@@ -11,7 +11,7 @@ require ROOT_PATH.'/vendor/autoload.php';
 class sendMail
 {
     private static $username = 'luosilent@qq.com';
-    private static $key = '';
+    private static $key = 'eqjqdzgwusyiceaf';
     private static $my = 'Lcg';
     private static $toMail1 = '166820145@qq.com';
     private static $toName1 = 'lcg';

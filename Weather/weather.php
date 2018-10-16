@@ -8,7 +8,7 @@
  */
 class Weather
 {
-    private static $key = '8ba0b2b43f49427e9f549d95418d9dce';
+    private static $key = '';
     private static $url = 'https://free-api.heweather.com/s6/weather/forecast';
 
     public function getWeather($location)
