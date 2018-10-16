@@ -8,16 +8,15 @@
 
 class NBA
 {
-
-    public function getGameDate($url)
+    public function getGameData($url)
     {
         $res = $this->setRequest($url);
-        $pattern1 = '/<td colspan=\"3\" class=\"left\" width=\"135\">(.*?)<tr class=\"left linglei\">/is';
+        $pattern1 = '/<td colspan=\"3\" class=\"left\" width=\"135\">(.*)<tr class=\"left linglei\">/isU';
         preg_match_all($pattern1, $res, $matches1);
-        $resDate = array_unique($matches1[0]);
-        $games = array();
+        $resDate = array_unique($matches1[0]);//赛程包含日期和球队
         $resGames = array();
         foreach ($resDate as $key => $value) {
+            $games = array();
             $pattern2 = '/<td colspan=\"3\" class=\"left\" width=\"135\">(.*)<\/td>/isU';
             preg_match_all($pattern2, $value, $matches2);
             $gameDate0 = $matches2[1][0];//日期
@@ -31,14 +30,14 @@ class NBA
                 $pattern4 = '/<td class=\"left\" width=\"135\">(.*)<\/td>/isU';
                 preg_match_all($pattern4, $v, $matches4);
                 $gameTime = $matches4[1][0];//具体时间
-                $pattern5 = '/<a href=\"(.*?)\".*?>(.*?)<\/a>(.*)<a href=\"(.*?)\".*?>(.*?)<\/a>/i';
+                $pattern5 = '/<a href=\"(.*?)\".*?>(.*)<\/a>(.*)<a href=\"(.*?)\".*?>(.*)<\/a>/iU';
                 preg_match_all($pattern5, $v, $matches5);
-                $game1 = $matches5[2][0];//球队1
+                $player1 = $matches5[2][0];//球队1
                 $vs = " vs ";//vs
-                $game2 = $matches5[5][0];//球队2
-                $games[$k] = $gameDate . " " . $gameTime . " " . $game1 . $vs . $game2;
+                $player2 = $matches5[5][0];//球队2
+                $games[$k] = $gameDate . " " . $gameTime . " " . $player1 . $vs . $player2;
             }
-            $resGames[] = $games;
+            $resGames[$key] = $games;
         }
 
         return $resGames;
@@ -72,46 +71,38 @@ class NBA
     {
         $day = date("Y-m-d");
         $today = date('m月d日');
-        $test = "10月18日";
-        $games = $this->getGameDate("http://nba.hupu.com/schedule/2018-10-19");
+        $games = $this->getGameData("http://nba.hupu.com/schedule/$day");
+        print_r($games);
         $gameDate = substr($games[0][0], 0, 10);
         $lent0 = count($games[0]);
         $lent1 = count($games[1]);
         $lent2 = count($games[2]);
-        $resGame = array();
-        if ($test != $gameDate) {
-            $t0 = "NBA今天没有比赛 ";
+        if ($today != $gameDate) {
+            $resGame = "今天$today 没有比赛" . PHP_EOL;
         } else {
-            $t0 = "NBA今日赛程 ";
+            $resGame = "今日$today 赛程" . PHP_EOL;
         }
-        $resGame['t0'][0] = <<<EOF
-$t0
-EOF;
+        $resGame .= PHP_EOL;
         for ($i = 0; $i < $lent0; $i++) {
             $t1 = $games[0][$i];
-            $resGame['t1'][] = <<<EOF
-$t1
-EOF;
+            $resGame .= $t1 . PHP_EOL;
         }
+        $resGame .= PHP_EOL;
         for ($j = 0; $j < $lent1; $j++) {
             $t2 = $games[1][$j];
-            $resGame['t2'][] = <<<EOF
-$t2
-EOF;
+            $resGame .= $t2 . PHP_EOL;
         }
+        $resGame .= PHP_EOL;
         for ($k = 0; $k < $lent2; $k++) {
             $t3 = $games[2][$k];
-            $resGame['t3'][] = <<<EOF
-$t3
-EOF;
+            $resGame .= $t3 . PHP_EOL;
         }
-
 
         return $resGame;
     }
 
 }
 
-$test = new NBA();
-$get = $test->getGame();
-print_r($get);
+//$test = new NBA();
+//$get = $test->getGame();
+//print_r($get);
