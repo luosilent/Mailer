@@ -11,3 +11,6 @@
 在Mailer\Weather\weather.php中修改配置参数
 
 运行sendWeather.php即可发送邮件提醒，支持多邮箱发送
+
+## 农历阳历的转换
+Mailer\Lunar\toLunar.php
