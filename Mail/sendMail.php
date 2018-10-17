@@ -10,11 +10,11 @@ require ROOT_PATH.'/vendor/autoload.php';
 
 class sendMail
 {
-    private static $username = 'luosilent@qq.com';
-    private static $key = 'eqjqdzgwusyiceaf';
-    private static $my = 'Lcg';
-    private static $toMail1 = '166820145@qq.com';
-    private static $toName1 = 'lcg';
+    private static $username = 'xx@qq.com'; //发件人邮箱
+    private static $key = 'xx'; //发件人邮箱开启SMTP，获取验证码
+    private static $my = 'Lcg'; //发件人昵称
+    private static $toMail1 = 'xxxx@qq.com'; //默认收件人邮箱
+    private static $toName1 = 'xxx'; //默认收件人昵称
 
 
     public function mail($content,$subject,$toMail2,$toName2)
