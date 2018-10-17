@@ -13,7 +13,7 @@
  * @return  string
  */
 
-$appkey = "";
+$appkey = "";//在聚合数据上申请查看
 
 //NBA常规赛
 $url = "http://op.juhe.cn/onebox/basketball/nba";
