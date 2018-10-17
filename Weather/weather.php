@@ -8,7 +8,7 @@
  */
 class Weather
 {
-    private static $key = '';
+    private static $key = ''; //免费申请和风天气的key
     private static $url = 'https://free-api.heweather.com/s6/weather/forecast';
 
     public function getWeather($location)
@@ -39,7 +39,7 @@ class Weather
             $ss = $daily_forecast['ss'];//日落时间
 
             $re[] = <<<EOF
-        $parent_city $city
+$parent_city $city
 白天天气:$cond_txt_d
 晚间天气:$cond_txt_n
 最高温度:$tmp_max 
