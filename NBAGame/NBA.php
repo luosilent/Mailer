@@ -102,7 +102,3 @@ class NBA
     }
 
 }
-
-//$test = new NBA();
-//$get = $test->getGame();
-//print_r($get);
