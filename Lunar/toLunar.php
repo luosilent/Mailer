@@ -14,3 +14,5 @@ $lunar = LunarSolarConverter::SolarToLunar($solar);
 print_r($lunar);
 $solar = LunarSolarConverter::LunarToSolar($lunar);
 print_r($solar);
+
+//农历阳历的转换
