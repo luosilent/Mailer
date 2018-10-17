@@ -11,9 +11,9 @@ require 'Mail/sendMail.php';
 $getGame = new NBA();
 $sendMail = new sendMail();
 $content = $getGame->getGame();
-$toMail = "luosilent@139.com";
-$toName = "luo";
-$subject = "NBA赛程提醒";
+$toMail = "xx@qq.com"; //增加收件人邮箱
+$toName = "xx"; //收件人昵称
+$subject = "NBA赛程提醒"; //邮件主题
 $mailer = $sendMail->mail($content, $subject, $toMail, $toName);
 
 if ($mailer) {
