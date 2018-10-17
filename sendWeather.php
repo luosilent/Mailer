@@ -12,8 +12,8 @@ require 'Mail/sendMail.php';
 $getWeather = new Weather();
 $sendMail = new sendMail();
 $content = $getWeather->getWeather("西湖");
-$toMail = "luosilent@139.com";
-$toName = "luo";
+$toMail = "xx@qq.com";
+$toName = "xx";
 $subject = "每日天气";
 $mailer = $sendMail->mail("$content", $subject, $toMail, $toName);
 
