@@ -19,7 +19,7 @@ class sendMail
 
     public function mail($content,$subject,$toMail2,$toName2)
     {
-        $transport = (new Swift_SmtpTransport('smtp.qq.com', 25))
+        $transport = (new Swift_SmtpTransport('smtp.qq.com', 25)) //阿里云改为('smtp.qq.com', 465, 'ssl')
             ->setUsername(self::$username)
             ->setPassword(self::$key);
 
