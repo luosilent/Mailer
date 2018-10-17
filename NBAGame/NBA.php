@@ -67,6 +67,7 @@ class NBA
         return $xxx;
     }
 
+    //获取3天的赛程，可以最多增加到7天
     public function getGame()
     {
         $day = date("Y-m-d");
