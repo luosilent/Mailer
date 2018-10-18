@@ -11,7 +11,7 @@ require ROOT_PATH.'/vendor/autoload.php';
 class sendMail
 {
     private static $username = 'xx@qq.com'; //发件人邮箱
-    private static $key = 'xx'; //发件人邮箱开启SMTP，获取验证码
+    private static $key = 'xx'; //发件人邮箱设置->账号，开启SMTP服务，生成授权码
     private static $my = 'Lcg'; //发件人昵称
     private static $toMail1 = 'xxxx@qq.com'; //默认收件人邮箱
     private static $toName1 = 'xxx'; //默认收件人昵称
