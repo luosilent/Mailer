@@ -35,7 +35,11 @@ class NBA
                 $player1 = $matches5[2][0];//球队1
                 $vs = " vs ";//vs
                 $player2 = $matches5[5][0];//球队2
-                $games[$k] = $gameDate . " " . $gameTime . " " . $player1 . $vs . $player2;
+                $important = "";
+                if ($player1 == "湖人" || $player2 == "湖人") {
+                    $important = "<—— LeBron James";
+                }
+                $games[$k] = $gameDate . " " . $gameTime . " " . $player1 . $vs . $player2 . $important;            
             }
             $resGames[$key] = $games;
         }
